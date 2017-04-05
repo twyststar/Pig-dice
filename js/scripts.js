@@ -10,10 +10,24 @@ Player.prototype.rolling = function() {
  console.log(playerRoll);
     if (playerRoll === 1) {
       return this.roll = 0;
-    }else {
+    } else {
       this.roll = (this.roll + playerRoll);
       return this.roll;
     }
+}
+
+Player.prototype.holding = function() {
+
+  this.score = (this.roll + this.score);
+  this.roll = 0;
+  if(this.score >= 100){
+    confirm("Congratulations! ");
+    if (true) {
+      location.reload();
+    }
+  }
+  return this.score;
+
 }
 
 
@@ -27,7 +41,7 @@ $(document).ready(function(){
     var pOneInput = $("#playerOne-name").val();
     onePlayer = new Player(pOneInput, 0, 0);
     $(".playerOneName").text(onePlayer.name);
-    console.log(onePlayer);
+
   });
 
   $("#playerTwo").submit(function(event){
@@ -36,20 +50,39 @@ $(document).ready(function(){
     var pTwoInput = $("#playerTwo-name").val();
     twoPlayer = new Player(pTwoInput, 0, 0);
     $(".playerTwoName").text(twoPlayer.name);
-    console.log(twoPlayer);
+
+  });
+
+  $("#p1button").click(function(event){
+    event.preventDefault();
+
+    var oneRoll = onePlayer.rolling();
+    $(".p1roll").text(oneRoll);
+    console.log(oneRoll);
   });
   $("#p2button").click(function(event){
     event.preventDefault();
-    var twoScore = twoPlayer.rolling();
+
+    var twoRoll = twoPlayer.rolling();
+    $(".p2roll").text(twoRoll);
+
+  });
+
+
+  $(".p1hold").click(function(event){
+    event.preventDefault();
+
+    var oneScore = onePlayer.holding();
+    $(".p1score").text(oneScore);
+    console.log(oneScore);
+    console.log(onePlayer);
+  });
+  $(".p2hold").click(function(event){
+    event.preventDefault();
+
+    var twoScore = twoPlayer.holding();
     $(".p2score").text(twoScore);
     console.log(twoScore);
   });
-  $("#p1button").click(function(event){
-    event.preventDefault();
-    var oneScore = onePlayer.rolling();
-    $(".p1score").text(oneScore);
-    console.log(oneScore);
-  });
-
 
 });
