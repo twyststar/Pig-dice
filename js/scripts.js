@@ -5,7 +5,16 @@ function Player(name, roll, score) {
   this.score = score;
 }
 
-
+Player.prototype.rolling = function() {
+ var playerRoll = Math.floor((Math.random() * 6) + 1);
+ console.log(playerRoll);
+    if (playerRoll === 1) {
+      return this.roll = 0;
+    }else {
+      this.roll = (this.roll + playerRoll);
+      return this.roll;
+    }
+}
 
 
 
@@ -16,7 +25,8 @@ $(document).ready(function(){
     event.preventDefault();
 
     var pOneInput = $("#playerOne-name").val();
-    var onePlayer = new Player(pOneInput, 0, 0);
+    onePlayer = new Player(pOneInput, 0, 0);
+    $(".playerOneName").text(onePlayer.name);
     console.log(onePlayer);
   });
 
@@ -24,8 +34,21 @@ $(document).ready(function(){
     event.preventDefault();
 
     var pTwoInput = $("#playerTwo-name").val();
-    var twoPlayer = new Player(pTwoInput, 0, 0);
+    twoPlayer = new Player(pTwoInput, 0, 0);
+    $(".playerTwoName").text(twoPlayer.name);
     console.log(twoPlayer);
+  });
+  $("#p2button").click(function(event){
+    event.preventDefault();
+    var twoScore = twoPlayer.rolling();
+    $(".p2score").text(twoScore);
+    console.log(twoScore);
+  });
+  $("#p1button").click(function(event){
+    event.preventDefault();
+    var oneScore = onePlayer.rolling();
+    $(".p1score").text(oneScore);
+    console.log(oneScore);
   });
 
 
