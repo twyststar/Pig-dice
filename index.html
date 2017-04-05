@@ -13,14 +13,19 @@
     <div class="container">
       <div class="header jumbotron">
         <h1>Pig Dice!</h1>
-        <p>Game rules Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+        <p>Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":</p>
+        <p>If the player rolls a 1, they score nothing and it becomes the next player's turn.</p>
+        <p>If the player rolls any other number, it is added to their turn total and the player's turn continues.</p>
+        <p>If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.</p>
+        <h4>The first player to score 100 or more points wins.</h4>
+        <p>For example, the first player, Ann, begins a turn with a roll of 5. Ann could hold and score 5 points, but chooses to roll again. Ann rolls a 2, and could hold with a turn total of 7 points, but chooses to roll again. Ann rolls a 1, and must end her turn without scoring. The next player, Bob, rolls the sequence 4-5-3-5-5, after which he chooses to hold, and adds his turn total of 22 points to his score.</p>
       </div>
       <div class="row">
-<!--Player fields-->
-        <div class="col-sm-4">
+<!--Player One fields-->
+        <div class="col-sm-5">
 
           <form class="playerOne" id="playerOne">
-            <div class="form-group well">
+            <div class="form-group well playOneDiv">
               <label for="playerOne-name">Player One enter your name! </label>
               <input type="text" class="form-control" id="playerOne-name">
               <button type="submit">Enter</button>
@@ -28,15 +33,32 @@
             <div class="playerOneScore well">
               <h3><span class="playerOneName"></span></h3>
               <button type="button" id="p1button">roll</button>
-              <p>ROLL <span class="p1roll">  </span></p>
+              <p>ROLL TOTAL  <span class="p1roll">  </span></p>
               <button class="p1hold">Hold</button>
-              <p>SCORE<span class="p1score">  </span> </p>
+              <p>SCORE   <span class="p1score"></span> </p>
             </div>
-
           </form>
-
+        </div>
+<!--Main game-->
+        <div class="col-sm-2">
+          <div class="well">
+            <h2>Your Roll</h2>
+            <img src="img/die.jpeg" alt="" />
+            <h1 class="currentRoll">1</h1>
+          </div>
+          <div class="well">
+            <h4><span class="playerOneName"></span></h4>
+            <h2><span class="p1score"></span></h2>
+          </div>
+          <div class="well">
+            <h4><span class="playerTwoName"></span></h4>
+            <h2><span class="p2score"> </span></h2>
+          </div>
+        </div>
+  <!--Player Two fields-->
+        <div class="col-sm-5">
           <form class="playerTwo" id="playerTwo">
-            <div class="form-group well">
+            <div class="form-group well playTwoDiv">
               <label for="playerTwo-name">Player Two enter your name! </label>
               <input type="text" class="form-control" id="playerTwo-name">
               <button type="submit">Enter</button>
@@ -45,20 +67,11 @@
             <div class="playerTwoScore well">
               <h3><span class="playerTwoName"></span></h3>
               <button type="button" id="p2button">roll</button>
-              <p>ROLL <span class="p2roll">  </span></p>
+              <p>ROLL TOTAL <span class="p2roll">  </span></p>
               <button class="p2hold">Hold</button>
-              <p>SCORE<span class="p2score">  </span> </p>
+              <p>SCORE   <span class="p2score">  </span> </p>
             </div>
           </form>
-
-        </div>
-<!--Main game-->
-        <div class="col-sm-8">
-          <div class="well">
-            <h2>Pig!</h2>
-          </div>
-          <button type="">Roll</button>
-          <button type="">Hold</button>
         </div>
       </div>
 

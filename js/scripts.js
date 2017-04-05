@@ -7,8 +7,9 @@ function Player(name, roll, score) {
 
 Player.prototype.rolling = function() {
  var playerRoll = Math.floor((Math.random() * 6) + 1);
- console.log(playerRoll);
+ $(".currentRoll").text(playerRoll);
     if (playerRoll === 1) {
+      alert("You got a '1'! Next Player!");
       return this.roll = 0;
     } else {
       this.roll = (this.roll + playerRoll);
@@ -41,7 +42,7 @@ $(document).ready(function(){
     var pOneInput = $("#playerOne-name").val();
     onePlayer = new Player(pOneInput, 0, 0);
     $(".playerOneName").text(onePlayer.name);
-
+    $(".playOneDiv").hide();
   });
 
   $("#playerTwo").submit(function(event){
@@ -50,6 +51,7 @@ $(document).ready(function(){
     var pTwoInput = $("#playerTwo-name").val();
     twoPlayer = new Player(pTwoInput, 0, 0);
     $(".playerTwoName").text(twoPlayer.name);
+    $(".playTwoDiv").hide();
 
   });
 
@@ -58,7 +60,7 @@ $(document).ready(function(){
 
     var oneRoll = onePlayer.rolling();
     $(".p1roll").text(oneRoll);
-    console.log(oneRoll);
+
   });
   $("#p2button").click(function(event){
     event.preventDefault();
@@ -74,15 +76,15 @@ $(document).ready(function(){
 
     var oneScore = onePlayer.holding();
     $(".p1score").text(oneScore);
-    console.log(oneScore);
-    console.log(onePlayer);
+    $(".p1roll").text("");
+
   });
   $(".p2hold").click(function(event){
     event.preventDefault();
 
     var twoScore = twoPlayer.holding();
     $(".p2score").text(twoScore);
-    console.log(twoScore);
+    $(".p2roll").text("");
   });
 
 });

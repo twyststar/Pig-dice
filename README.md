@@ -15,10 +15,17 @@ _This is a simple dice game for two players. Each player rolls until they either
 * __
 * __
 * __
+## Specs
+
+* _It will generate a random dice roll between 1 and 6_
+* _Add dice totals during player rolls_
+* _Add total to player score_
+* _It will reduce the roll total score to zero, if 1 is rolled_
+* _It will alert a winner when one player score reach 100_
 
 ## Known Bugs
 
-__
+_We kill them all!_
 
 ## Support and contact details
 

@@ -1,6 +1,18 @@
-div {
+/*div {
   border: 1px solid black;
-}
+}*/
 .score {
   border: 1px solid black;
+}
+/*.col-sm-2 {
+  text-align: center;
+}*/
+img {
+  width: 100%;
+  height: auto;
+}
+.currentRoll {
+  text-align: center;
+  padding-top: 0;
+  margin-top: -60px;
 }
