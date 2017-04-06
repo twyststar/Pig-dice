@@ -18,7 +18,6 @@ Player.prototype.rolling = function() {
 }
 
 Player.prototype.holding = function() {
-
   this.score = (this.roll + this.score);
   this.roll = 0;
   if(this.score >= 100){
@@ -28,7 +27,6 @@ Player.prototype.holding = function() {
     }
   }
   return this.score;
-
 }
 
 
@@ -88,6 +86,7 @@ $(document).ready(function(){
   // });
   $("#singlePlayer").click(function(event){
     event.preventDefault();
+    $(".compScore").show();
     $("#playerTwo").hide();
     compPlayer = new Player("Circuit", 0, 0);
     $(".playerTwoName").text("Circuit");
