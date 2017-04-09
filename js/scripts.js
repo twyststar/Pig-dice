@@ -20,7 +20,7 @@ Player.prototype.rolling = function() {
 Player.prototype.holding = function() {
   this.score = (this.roll + this.score);
   this.roll = 0;
-  if(this.score >= 100){
+  if(this.score >= 40){
     confirm("Congratulations! ");
     if (true) {
       location.reload();
@@ -43,15 +43,15 @@ $(document).ready(function(){
     $(".playOneDiv").hide();
   });
 
-  // $("#playerTwo").submit(function(event){
-  //   event.preventDefault();
-  //
-  //   var pTwoInput = $("#playerTwo-name").val();
-  //   twoPlayer = new Player(pTwoInput, 0, 0);
-  //   $(".playerTwoName").text(twoPlayer.name);
-  //   $(".playTwoDiv").hide();
-  //
-  // });
+  $("#playerTwo").submit(function(event){
+    event.preventDefault();
+
+    var pTwoInput = $("#playerTwo-name").val();
+    twoPlayer = new Player(pTwoInput, 0, 0);
+    $(".playerTwoName").text(twoPlayer.name);
+    $(".playTwoDiv").hide();
+
+  });
 
   $("#p1button").click(function(event){
     event.preventDefault();
@@ -60,13 +60,13 @@ $(document).ready(function(){
     $(".p1roll").text(oneRoll);
 
   });
-  // $("#p2button").click(function(event){
-  //   event.preventDefault();
-  //
-  //   var twoRoll = twoPlayer.rolling();
-  //   $(".p2roll").text(twoRoll);
-  //
-  // });
+  $("#p2button").click(function(event){
+    event.preventDefault();
+
+    var twoRoll = twoPlayer.rolling();
+    $(".p2roll").text(twoRoll);
+
+  });
 
 
   $(".p1hold").click(function(event){
@@ -75,15 +75,24 @@ $(document).ready(function(){
     var oneScore = onePlayer.holding();
     $(".p1score").text(oneScore);
     $(".p1roll").text("");
-
+    $("#p1button").prop("disabled", true);
+    $(".p1hold").prop("disabled", true);
+    $("#p2button").prop("disabled", false);
+    $(".p2hold").prop("disabled", false);
   });
-  // $(".p2hold").click(function(event){
-  //   event.preventDefault();
-  //
-  //   var twoScore = twoPlayer.holding();
-  //   $(".p2score").text(twoScore);
-  //   $(".p2roll").text("");
-  // });
+
+  $(".p2hold").click(function(event){
+    event.preventDefault();
+
+    var twoScore = twoPlayer.holding();
+    $(".p2score").text(twoScore);
+    $(".p2roll").text("");
+    $("#p2button").prop("disabled", true);
+    $(".p2hold").prop("disabled", true);
+    $("#p1button").prop("disabled", false);
+    $(".p1hold").prop("disabled", false);
+  });
+
   $("#singlePlayer").click(function(event){
     event.preventDefault();
     $(".compScore").show();
