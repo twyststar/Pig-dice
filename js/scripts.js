@@ -18,7 +18,6 @@ Player.prototype.rolling = function() {
 }
 
 Player.prototype.holding = function() {
-
   this.score = (this.roll + this.score);
   this.roll = 0;
   if(this.score >= 100){
@@ -28,7 +27,6 @@ Player.prototype.holding = function() {
     }
   }
   return this.score;
-
 }
 
 
@@ -45,15 +43,15 @@ $(document).ready(function(){
     $(".playOneDiv").hide();
   });
 
-  $("#playerTwo").submit(function(event){
-    event.preventDefault();
-
-    var pTwoInput = $("#playerTwo-name").val();
-    twoPlayer = new Player(pTwoInput, 0, 0);
-    $(".playerTwoName").text(twoPlayer.name);
-    $(".playTwoDiv").hide();
-
-  });
+  // $("#playerTwo").submit(function(event){
+  //   event.preventDefault();
+  //
+  //   var pTwoInput = $("#playerTwo-name").val();
+  //   twoPlayer = new Player(pTwoInput, 0, 0);
+  //   $(".playerTwoName").text(twoPlayer.name);
+  //   $(".playTwoDiv").hide();
+  //
+  // });
 
   $("#p1button").click(function(event){
     event.preventDefault();
@@ -62,13 +60,13 @@ $(document).ready(function(){
     $(".p1roll").text(oneRoll);
 
   });
-  $("#p2button").click(function(event){
-    event.preventDefault();
-
-    var twoRoll = twoPlayer.rolling();
-    $(".p2roll").text(twoRoll);
-
-  });
+  // $("#p2button").click(function(event){
+  //   event.preventDefault();
+  //
+  //   var twoRoll = twoPlayer.rolling();
+  //   $(".p2roll").text(twoRoll);
+  //
+  // });
 
 
   $(".p1hold").click(function(event){
@@ -79,12 +77,20 @@ $(document).ready(function(){
     $(".p1roll").text("");
 
   });
-  $(".p2hold").click(function(event){
+  // $(".p2hold").click(function(event){
+  //   event.preventDefault();
+  //
+  //   var twoScore = twoPlayer.holding();
+  //   $(".p2score").text(twoScore);
+  //   $(".p2roll").text("");
+  // });
+  $("#singlePlayer").click(function(event){
     event.preventDefault();
-
-    var twoScore = twoPlayer.holding();
-    $(".p2score").text(twoScore);
-    $(".p2roll").text("");
-  });
+    $(".compScore").show();
+    $("#playerTwo").hide();
+    compPlayer = new Player("Circuit", 0, 0);
+    $(".playerTwoName").text("Circuit");
+    console.log(compPlayer);
+  })
 
 });

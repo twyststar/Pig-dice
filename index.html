@@ -19,6 +19,7 @@
         <p>If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.</p>
         <h4>The first player to score 100 or more points wins.</h4>
         <p>For example, the first player, Ann, begins a turn with a roll of 5. Ann could hold and score 5 points, but chooses to roll again. Ann rolls a 2, and could hold with a turn total of 7 points, but chooses to roll again. Ann rolls a 1, and must end her turn without scoring. The next player, Bob, rolls the sequence 4-5-3-5-5, after which he chooses to hold, and adds his turn total of 22 points to his score.</p>
+        <button type="button" id="singlePlayer">Play the Computer!!</button>
       </div>
       <div class="row">
 <!--Player One fields-->
@@ -72,6 +73,15 @@
               <p>SCORE   <span class="p2score">  </span> </p>
             </div>
           </form>
+<!--Computer player-->
+            <div class="compScore well">
+              <h3>Circuit</h3>
+              <button type="button" id="compbutton">roll</button>
+              <p>ROLL TOTAL <span class="comproll">  </span></p>
+              <button class="comphold">Hold</button>
+              <p>SCORE   <span class="compscore">  </span> </p>
+            </div>
+
         </div>
       </div>
 
